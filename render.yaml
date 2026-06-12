@@ -1,0 +1,38 @@
+services:
+  # Backend Web Service (NestJS)
+  - type: web
+    name: course-platform-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    plan: free
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: DB_HOST
+        value: ep-damp-hall-aheim1zo-pooler.c-3.us-east-1.aws.neon.tech
+      - key: DB_PORT
+        value: 5432
+      - key: DB_USERNAME
+        value: neondb_owner
+      - key: DB_PASSWORD
+        value: npg_KwI1Td5okzlA
+      - key: DB_NAME
+        value: neondb
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false # Set to the Frontend URL (e.g. https://course-platform-frontend.onrender.com) once deployed
+
+  # Frontend Web Service (Next.js)
+  - type: web
+    name: course-platform-frontend
+    env: node
+    rootDir: Frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    plan: free
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        sync: false # Set to the Backend URL (e.g. https://course-platform-backend.onrender.com) once deployed
