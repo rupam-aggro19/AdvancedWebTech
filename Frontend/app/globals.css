@@ -1,0 +1,36 @@
+:root {
+  --primary: #0f172a;        /* Dark blue */
+  --primary-light: #1e293b;
+  --accent: #2563eb;         /* Blue button */
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.content {
+  min-height: calc(100vh - 120px);
+  padding: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
